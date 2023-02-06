@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 class NewsController extends Controller
 {
     public function index() {    
-        // dd($this->get());
         return view('news', [
             'data' => $this->get(),
         ]);
@@ -35,7 +34,6 @@ class NewsController extends Controller
     }
 
     public function create(Request $req) {
-        // return $req;
         $new = new News;        
         // $new->id = $req->id;
         $new->title = $req->title;

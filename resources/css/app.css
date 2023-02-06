@@ -274,14 +274,6 @@ table {
     cursor: pointer;
 }
 
-/* .btn:hover {
-    border: 1px solid #fff;
-}
-
-.form-control {
-    background-color: #8C8698;
-} */
-
 a.delete {
     background-color: black;
     color: #fff !important; 

@@ -35,7 +35,6 @@
                     </tbody>
                 </table>
             </div>
-            <!-- <button class="btn-update" id="update"></button> -->
             <a href="#" class="btn-update" id="update"></a>
         </div>
         <div class="currency-list">
@@ -53,17 +52,15 @@
     $(".btn-update").on('click', function(e) {
         e.preventDefault();
         $.ajax({
-			url: '/get',         /* Куда пойдет запрос */
-			method: 'get',             /* Метод передачи (post или get) */
-			dataType: 'json',          /* Тип данных в ответе (xml, json, script, html). */
+			url: '/get',
+			method: 'get',
+			dataType: 'json',
 			// data: {id: id},     /* Параметры передаваемые в запросе. */
-            success: function(response){   /* функция которая будет выполнена после успешного запроса.  */
-		        // alert(data.weather);            /* В переменной data содержится ответ от index.php. */
+            success: function(response){
                 var data = JSON.parse(JSON.stringify(response));
                 console.log(data);
                 $(".weather_temp").html(data['weather']['temperature']+'°');
                 $(".weather_apparent").html(data['weather']['apparent_temperature']+'°');
-                console.log($(".currency-item").children('.currency_info'));
                 $(".currency-item").each(function (index, element) {
                     $(element).children('.currency_info').html('1 '+data['currency'][index]['charCode'][0]+' = '+data['currency'][index]['value']+' RUB');
                     $(element).children('.currency_name').html(data['currency'][index]['name'][0]);

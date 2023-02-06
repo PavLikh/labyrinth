@@ -44,7 +44,6 @@
 <script type="module">
     $(".create").on('click', function(e){
         e.preventDefault();
-		// e.stopPropagation();
 		var item  = $(this).parent()
 		var id = item.attr('id');
 
@@ -79,15 +78,13 @@
 
     $(".delete").on('click', function(e){
         e.preventDefault();
-		// e.stopPropagation();
 		var item  = $(this).parent()
 		var id = item.attr('id');
 		console.log(id);
 		$.ajax({
-			url: '/api/delete?id='+id,         /* Куда пойдет запрос */
-			method: 'delete',             /* Метод передачи (post или get) */
-			dataType: 'json',          /* Тип данных в ответе (xml, json, script, html). */
-			// data: {id: id},     /* Параметры передаваемые в запросе. */
+			url: '/api/delete?id='+id,
+			method: 'delete',
+			dataType: 'json',
 			success: function(response){
 			var a = JSON.parse(JSON.stringify(response));
 				console.log(a);
