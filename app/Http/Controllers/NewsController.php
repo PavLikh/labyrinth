@@ -26,7 +26,6 @@ class NewsController extends Controller
             'news' => $result,
             'detail' => request('id') ? 1 : 0
         ];
-        // return view('news');
     }
     
     public function create1(Request $req) {
