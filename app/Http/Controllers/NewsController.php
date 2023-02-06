@@ -8,45 +8,33 @@ use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
-    // public function temp() {
-    //     // return view('news');
-    //     // dd(fake()->dateTime());
-    //     $x = now()->addHours(2);
-    //     dd($x);
-
-
-            // $id = $req->input('id');
-        // $string = Str::ucfirst('foo bar');
-        // $converted = Str::lower('LARAVEL');
-        // $slug = Str::slug('Laravel 5 Framework', '-');
-        // $slug = Str::slug('Игорь Вася спят', '-');
-        // $slice = Str::ascii('вавмар_арван арв');
-    //     return csrf_token();
-
-    // }
-   
-    // public function index(Request $req) {
-    public function index() {       
+    public function index() {    
+        // dd($this->get());
+        return view('news', [
+            'data' => $this->get(),
+        ]);
+    }
+    
+    public function get() {       
         if(request('id')) {
-            $result = News::find(request('id'));
+            $result = [News::find(request('id'))];
         } else if (request('q')) {
             $result = News::where('title', 'like', '%'.request('q').'%')->get();
         } else {
             $result = News::get();
         }
-
-        return $result;
+        return [
+            'news' => $result,
+            'detail' => request('id') ? 1 : 0
+        ];
         // return view('news');
     }
     
-
-
-
-    public function create(Request $req) {
+    public function create1(Request $req) {
         return ['asd'=>1];
     }
 
-    public function create1(Request $req) {
+    public function create(Request $req) {
         // return $req;
         $new = new News;        
         // $new->id = $req->id;
@@ -55,10 +43,6 @@ class NewsController extends Controller
         $new->text = $req->text;
         $new->tags = $req->tags;
         $new->date = $req->date;
-        // $new->date =  date(DATE_RFC822);
-        // $new->date =  fake()->dateTime();
-        // $new->date =  now()->format('d-m-Y H:i:s');
-        // $new->date =  now();
 
         try {
             $new->save();

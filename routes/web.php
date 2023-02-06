@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\LifeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +21,9 @@ use App\Http\Controllers\NewsController;
 // });
 
 
-Route::get('/news', [NewsController::class, 'index']);
-// Route::get('/news', [NewsController::class, 'showOne']);
-// Route::get('/create', [NewsController::class, 'create']);
-// Route::post('/create', [NewsController::class, 'create1']);
+Route::get('/info', [InfoController::class, 'index'])->name('info.index');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/life', [LifeController::class, 'index'])->name('life.index');
 
-
-// news?id= или /news?q=
+Route::get('/get', [InfoController::class, 'get']);
+Route::get('/test', [InfoController::class, 'currency']);

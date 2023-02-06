@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/create', [NewsController::class, 'create1']);
+Route::post('/create', [NewsController::class, 'create']);
 Route::delete('/delete', [NewsController::class, 'delete']);
