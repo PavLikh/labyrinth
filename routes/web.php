@@ -21,7 +21,7 @@ use App\Http\Controllers\LifeController;
 // });
 
 
-Route::get('/info', [InfoController::class, 'index'])->name('info.index');
+Route::get('/', [InfoController::class, 'index'])->name('info.index');
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/life', [LifeController::class, 'index'])->name('life.index');
 
