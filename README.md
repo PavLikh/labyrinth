@@ -19,7 +19,7 @@
 
 ##
 
-openapi.yaml - описание апи
+
 - .env файл \
     DB_CONNECTION=mysql \
     DB_HOST=mysql \
