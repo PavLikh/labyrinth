@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\LifeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('news');
-});
+
+Route::get('/info', [InfoController::class, 'index'])->name('info.index');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/life', [LifeController::class, 'index'])->name('life.index');
+
+Route::get('/get', [InfoController::class, 'get']);
+Route::get('/test', [InfoController::class, 'currency']);
