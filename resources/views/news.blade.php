@@ -63,7 +63,7 @@
 			var a = JSON.parse(JSON.stringify(response));
 				console.log(a);
                 $('.news-list').prepend(
-                    '<div class="news-item" id="'+a.id+'"><a href=""><h3>'+a.title+
+                    '<div class="news-item" id="'+a.id+'"><a href="?id='+a.id+'"><h3>'+a.title+
                     '</h3></a><div class="announcement">'
                 +a.announcement+'</div><p>'+a.tags+'</p><a href="#" class="delete">Удалить</a></div>'
                 );
